@@ -1,10 +1,9 @@
 import openai
-import os
-from dotenv import load_dotenv
+import streamlit as st
 from ..database import get_db_connection
 
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Streamlit secrets에서 API 키 가져오기
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 def get_basic_data(file_id, conn):
     cur = conn.cursor()
@@ -60,4 +59,4 @@ def run_ai_analysis(file_id, additional_prompt=""):
         return response.choices[0].message.content 
     except Exception as e:
         print(f"Error in run_ai_analysis: {e}")
-        return None 
+        return None  
