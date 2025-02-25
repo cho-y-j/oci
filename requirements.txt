@@ -1,0 +1,7 @@
+streamlit
+pandas
+plotly
+psycopg2-binary
+python-dotenv
+openai
+openpyxl  # 엑셀 파일 처리용
